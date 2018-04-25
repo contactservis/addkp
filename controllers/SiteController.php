@@ -130,13 +130,16 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays about page.
-     *
-     * @return string
+     * Пользовательская страница
      */
     public function actionUser()
     {
         return $this->render('user');
+    }
+
+    public function actionNewkp()
+    {
+        return $this->render('user_tpl/new_kp');
     }
 
 }
