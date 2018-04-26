@@ -63,7 +63,7 @@ class SiteController extends Controller
     {
         // если пользователь не гость то редеректим его на страницу
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->render('user');
         }
 
         $model = new LoginForm();
@@ -129,17 +129,31 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * Пользовательская страница
-     */
+
+    // Пользовательская страница
     public function actionUser()
     {
         return $this->render('user');
     }
 
+    // новое комм предложение
     public function actionNewkp()
     {
         return $this->render('user_tpl/new_kp');
     }
+
+    // новый клиент
+    public function actionNew_klient()
+    {
+        return $this->render('user_tpl/new_kp');
+    }
+
+    // новый клиент
+    public function actionList_all()
+    {
+        return $this->render('user_tpl/new_kp');
+    }
+
+
 
 }
