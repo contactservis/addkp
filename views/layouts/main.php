@@ -21,7 +21,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
+    <?php $this->head() ?>    
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -97,8 +97,9 @@ AppAsset::register($this);
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
-
 <?php $this->endBody() ?>
+<script src="<?=Yii::getAlias('@web')?>/js/script.js" type=""></script>
+<script src="<?=Yii::getAlias('@web')?>/js/botstrap.min.js" type=""></script>
 </body>
 </html>
 <?php $this->endPage() ?>
