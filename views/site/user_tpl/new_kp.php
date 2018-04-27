@@ -88,8 +88,8 @@ use yii\bootstrap\Modal;
             foreach($arItem as $item){
               echo '<div class="panel panel-default">';
               echo '<div class="panel-heading" id="'.$item['id'].'" ><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse'.$item['id'].'">'.$item['name'].'</a></h4></div>';
-              echo '<div id="collapse'.$item['id'].'" class="panel-collapse collapse"><div class="panel-body">';
-              echo '<ul class="list-group">';
+              echo '<div id="collapse'.$item['id'].'" class="panel-collapse collapse"><div class="panel-body" style="padding:0;">';
+              echo '<ul class="list-group" style="margin-bottom:0;">';
                 foreach($item['item'] as $item_cld){                    
                         echo '<li class="list-group-item" id="'.$item_cld['id'].'" data-ed="'.$item_cld['ed'].'">'.$item_cld['name'].'</li>';
                 }
