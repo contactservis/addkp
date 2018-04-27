@@ -3,6 +3,13 @@ use yii\bootstrap\Modal;
 ?>
 
 <h2>Новое КП</h2>
+<?php
+    //print_r($arItem); 
+    //echo "<h4>".$arItem['name']."</h4>";
+    /*foreach($arItem as $Items){
+        echo '<br>'.$Item->name ;
+    }*/
+?>
 <div class="row">
     <div class="panel panel-default">
         <div class="panel-heading">Схематичное изображение</div>
@@ -78,7 +85,7 @@ use yii\bootstrap\Modal;
                 )
             );
             echo '<div class="panel-group" id="accordion">';
-            foreach($arrKategory as $item){
+            foreach($arItem as $item){
               echo '<div class="panel panel-default">';
               echo '<div class="panel-heading" id="'.$item['id'].'" ><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse'.$item['id'].'">'.$item['name'].'</a></h4></div>';
               echo '<div id="collapse'.$item['id'].'" class="panel-collapse collapse"><div class="panel-body">';
@@ -122,8 +129,8 @@ use yii\bootstrap\Modal;
                     <th>Наименование</th>
                     <th>ед изм</th>
                     <th>кол-во</th>
-                    <th>Стоимость с НДС (18%), руб.</th>
-                    <th>Общая стоимость, с НДС (18%), руб.</th>
+                    <th>Стоимость(18%)</th>
+                    <th>Общая стоимость</th>
                 </tr>
             </thead>
             <tbody>

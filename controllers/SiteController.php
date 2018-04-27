@@ -9,6 +9,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\ItemTable;
+use app\models\Categorytable;
 
 class SiteController extends Controller
 {
@@ -139,7 +141,21 @@ class SiteController extends Controller
     // новое комм предложение
     public function actionNewkp()
     {
-        return $this->render('user_tpl/new_kp');
+        
+        $arrCategory = 	Categorytable::find()->all();
+        // упакуем все в массив
+        $arCategorys = array();
+        foreach($arrCategory as $itemCategory){
+            $arCategory['id'] = $itemCategory->id;
+            $arCategory['name'] = $itemCategory->name;
+            $arCategory['item'] = Itemtable::find()->where(['id_block'=>$itemCategory->id])->all();
+            $arCategorys[] = $arCategory;
+        }
+        // получаем все строки из таблицы "country" и сортируем их по "name"        
+        return $this->render('user_tpl/new_kp',
+        [
+            'arItem' => $arCategorys
+        ]);
     }
 
     // новый клиент
