@@ -11,6 +11,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\ItemTable;
 use app\models\Categorytable;
+use app\models\Block;
 
 class SiteController extends Controller
 {
@@ -142,20 +143,30 @@ class SiteController extends Controller
     public function actionNewkp()
     {
         
-        $arrCategory = 	Categorytable::find()->all();
-        // упакуем все в массив
-        $arCategorys = array();
-        foreach($arrCategory as $itemCategory){
-            $arCategory['id']       = $itemCategory->id;
-            $arCategory['id_block'] = $itemCategory->id_block   ;
-            $arCategory['name']     = $itemCategory->name;
-            $arCategory['item']     = Itemtable::find()->where(['id_block'=>$itemCategory->id])->all();
-            $arCategorys[]          = $arCategory;
+        $arrBlock       = Block::find()->all() ;       
+        // упакуем все в массив        
+        $arrItem     = array();
+        foreach($arrBlock as $itemBlock){
+            //echo "<br>".$itemBlock->id;
+            $arCategorys = array();
+            $arrCategory    = 	Categorytable::find()->where(['id_block'=>$itemBlock->id])->all();           
+            foreach($arrCategory as $itemCategory){
+                //echo "<br>".$itemCategory->name;
+                $arCategory['id']       = $itemCategory->id;
+                $arCategory['id_block'] = $itemCategory->id_block;
+                $arCategory['name']     = $itemCategory->name;
+                $arCategory['item']     = Itemtable::find()->where(['id_block'=>$itemCategory->id])->all();
+                $arCategorys[]          = $arCategory;
+            }
+            //print_r($arCategorys);
+            //echo "<br>==========================";
+            $arrItem[$itemBlock->id] = $arCategorys;
         }
-        // получаем все строки из таблицы "country" и сортируем их по "name"        
+            
         return $this->render('user_tpl/new_kp',
         [
-            'arItem' => $arCategorys
+            'arItem' => $arCategorys,
+            'arrItemsBlock' => $arrItem
         ]);
     }
 

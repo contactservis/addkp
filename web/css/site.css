@@ -113,3 +113,11 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+
+#textblock {
+    width: 100%;
+    margin-top: 10px;
+    min-height: 150px;
+    border: 1px solid darkgrey;
+}
