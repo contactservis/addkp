@@ -136,7 +136,7 @@ use yii\bootstrap\Modal;
 <div class="row">
     <div class="panel panel-default" id="block3">
         <div class="panel-heading">Комплектация условия</div>
-        <div class="panel-body" contenteditable="true">
+        <div class="panel-body">
            <p>1. Цены, указанные в п.1 - 2. настоящего соглашения, действительны с 11.04.2018 и действуют до следующего изменения цены, по соглашению Сторон.</p>
            <p>2.  Расчеты за поставленную продукцию производятся на условиях:</p>
             <ol>
@@ -152,7 +152,7 @@ use yii\bootstrap\Modal;
 <div class="row">
     <div class="panel panel-default" id="block4">
         <div class="panel-heading">Назначение</div>
-        <div class="panel-body" contenteditable="true">
+        <div class="panel-body">
         <?php
             Modal::begin([
                 'header' => '<h3>Выберите из списка</h3>',
@@ -166,7 +166,7 @@ use yii\bootstrap\Modal;
             
            
             echo '<div class="panel-group" id="accordion">';
-            foreach($arrItemsBlock[1] as $item){
+            foreach($arrItemsBlock[3] as $item){
               echo '<div class="panel panel-default">';
               echo '<div class="panel-heading" id="'.$item['id'].'" ><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse'.$item['id'].'">'.$item['name'].'</a></h4></div>';
               echo '<div id="collapse'.$item['id'].'" class="panel-collapse collapse"><div class="panel-body" style="padding:0;">';
@@ -190,7 +190,7 @@ use yii\bootstrap\Modal;
 <div class="row">
     <div class="panel panel-default" id="block5">
         <div class="panel-heading">Техническое описание</div>
-        <div class="panel-body" contenteditable="true">
+        <div class="panel-body">
         <?php
             Modal::begin([
                 'header' => '<h3>Выберите из списка</h3>',
@@ -228,7 +228,7 @@ use yii\bootstrap\Modal;
 <div class="row">
     <div class="panel panel-default" id="block6">
         <div class="panel-heading">Электропроводка</div>        
-        <div class="panel-body" contenteditable="true"> 
+        <div class="panel-body"> 
         <?php
             Modal::begin([
                 'header' => '<h3>Выберите из списка</h3>',
