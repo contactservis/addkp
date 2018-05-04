@@ -182,6 +182,10 @@ class SiteController extends Controller
         return $this->render('user_tpl/new_kp');
     }
 
-
+    // админ панель
+    public function actionAdmin()
+    {
+        return $this->render('user_tpl/new_kp');
+    }
 
 }

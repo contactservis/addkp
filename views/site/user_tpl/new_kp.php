@@ -22,7 +22,7 @@ use yii\bootstrap\Modal;
     </div>
 </div>
 <div class="row">
-    <div class="panel panel-default" id="block1">
+    <div class="panel panel-default panel-block" id="block1">
         <div class="panel-heading">Комплектация</div>
         <div class="panel-body">
            <?php
@@ -96,7 +96,7 @@ use yii\bootstrap\Modal;
     </div>
 </div>
 <div class="row">
-    <div class="panel panel-default" id="block2">
+    <div class="panel panel-default panel-block" id="block2">
         <div class="panel-heading">Комплектация</div>
         <div class="panel-body">
             <?php
@@ -150,7 +150,7 @@ use yii\bootstrap\Modal;
     </div>
 </div>
 <div class="row">
-    <div class="panel panel-default" id="block4">
+    <div class="panel panel-default panel-block" id="block4">
         <div class="panel-heading">Назначение</div>
         <div class="panel-body">
         <?php
@@ -188,7 +188,7 @@ use yii\bootstrap\Modal;
     </div>
 </div>
 <div class="row">
-    <div class="panel panel-default" id="block5">
+    <div class="panel panel-default panel-block" id="block5">
         <div class="panel-heading">Техническое описание</div>
         <div class="panel-body">
         <?php
@@ -226,7 +226,7 @@ use yii\bootstrap\Modal;
     </div>
 </div>
 <div class="row">
-    <div class="panel panel-default" id="block6">
+    <div class="panel panel-default panel-block" id="block6">
         <div class="panel-heading">Электропроводка</div>        
         <div class="panel-body"> 
         <?php
