@@ -184,13 +184,34 @@ class SiteController extends Controller
     ///////////////////////////////////////////////////////////////////////////////////////////
     // админ панель
     public function actionAdmin()
-    {
+    {        
         return $this->render('admin_tpl/main');
     }
 
     public function actionEdit_block()
     {
-        return $this->render('admin_tpl/edit_block');
+        $arrBlock       = Block::find()->all() ;       
+        // упакуем все в массив        
+        $arrItem        = array();
+        $nameBlocks     = array();
+        foreach($arrBlock as $itemBlock){
+            $arCategorys = array();
+            $arrCategory    = 	Categorytable::find()->where(['id_block'=>$itemBlock->id])->all();           
+            foreach($arrCategory as $itemCategory){
+                $arCategory['id']       = $itemCategory->id;
+                $arCategory['id_block'] = $itemCategory->id_block;
+                $arCategory['name']     = $itemCategory->name;
+                $arCategory['item']     = Itemtable::find()->where(['id_block'=>$itemCategory->id])->all();                
+                $arCategorys[]          = $arCategory;                
+            }
+            $arrItem[$itemBlock->id]    = $arCategorys;
+            $nameBlocks[$itemBlock->id] = $itemBlock->name; 
+        }
+        return $this->render('admin_tpl/edit_block',
+        [
+            'arrItems'      => $arrItem,
+            'nameBlocks'    => $nameBlocks
+        ]);
     }
 
 }
