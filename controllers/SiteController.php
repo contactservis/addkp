@@ -195,30 +195,35 @@ class SiteController extends Controller
         // упакуем все в массив        
         $arrItem        = array();
         $nameBlocks     = array();
+        $nameCategorys   = array();
         foreach($arrBlock as $itemBlock){
-            $arCategorys = array();
-            $arrCategory    = 	Categorytable::find()->where(['id_block'=>$itemBlock->id])->all();           
+            $arCategorys    = array();
+            $arrCategory    = Categorytable::find()->where(['id_block'=>$itemBlock->id])->all();                   
             foreach($arrCategory as $itemCategory){
-                $arCategory['id']       = $itemCategory->id;
-                $arCategory['id_block'] = $itemCategory->id_block;
-                $arCategory['name']     = $itemCategory->name;
-                $arCategory['item']     = Itemtable::find()->where(['id_block'=>$itemCategory->id])->all();                
-                $arCategorys[]          = $arCategory;                
+                $arCategory['id']                   = $itemCategory->id;
+                $arCategory['id_block']             = $itemCategory->id_block;
+                $arCategory['name']                 = $itemCategory->name;
+                $arCategory['item']                 = Itemtable::find()->where(['id_block'=>$itemCategory->id])->all();                
+                $arCategorys[]                      = $arCategory;
+                $nameCategorys[$itemCategory->id]   = $itemCategory->name;
             }
             $arrItem[$itemBlock->id]    = $arCategorys;
-            $nameBlocks[$itemBlock->id] = $itemBlock->name; 
+            $nameBlocks[$itemBlock->id] = $itemBlock->name;
         }
+
+        // форма добавления новой записи
+
         return $this->render('admin_tpl/edit_block',
         [
             'arrItems'      => $arrItem,
-            'nameBlocks'    => $nameBlocks
+            'nameBlocks'    => $nameBlocks,
+            'nameCategorys'  => $nameCategorys
         ]);
     }
 
     // сохранение данных в таблицу
     public function actionTest($name)
-    {
-        echo "-------------------".$name;
+    {        
         $customer = new Test();
         $customer->name = $name;
         $customer->save();
