@@ -12,6 +12,7 @@ use app\models\ContactForm;
 use app\models\ItemTable;
 use app\models\Categorytable;
 use app\models\Block;
+use app\models\Test;
 
 class SiteController extends Controller
 {
@@ -214,4 +215,13 @@ class SiteController extends Controller
         ]);
     }
 
+    // сохранение данных в таблицу
+    public function actionTest($name)
+    {
+        echo "-------------------".$name;
+        $customer = new Test();
+        $customer->name = $name;
+        $customer->save();
+        return $this->render('admin_tpl/request');
+    }
 }

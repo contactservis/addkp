@@ -24,4 +24,18 @@ $(document).ready(function(){
         $(text_block).append("<p>&nbsp;&nbsp;&nbsp;"+text_ed+"</p>");
     });
 
+    // 
+
+    $('#save_item').on('click', function(){
+        var url         = window.location.hostname;
+        var url_action  = 'http://'+url+'/yii/basic/web/index.php?r=site%2Ftest'; 
+        
+        $.ajax({
+            url: url_action,
+            success: function(data){
+              alert( "Прибыли данные: " + data );
+            }
+          });
+    });
+
 });

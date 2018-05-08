@@ -129,7 +129,7 @@ use yii\bootstrap\Modal;
 
             Modal::end();
             ?>            
-            <div id="textblock" contenteditable="true"></div>
+            <div id="textblock"     ></div>
         </div>
     </div>
 </div>

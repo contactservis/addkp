@@ -1,6 +1,3 @@
-<?php
-
-?>
 <div class="row">
     <h3>Список блоков для КП</h3>
 </div>
@@ -11,6 +8,8 @@
         <div class="panel panel-default">
             <div class="panel-heading"><?php echo $nameBlocks[$key] ;?></div>
             <div class="panel-body">
+                <h3>Добавить запись</h3>
+                <button type="button" id="add_item" class="btn btn-success" style="margin-top: 15px;">Сохранить изменения</button>
                 <?php foreach($Items as $tblItems){ ?>
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
@@ -28,7 +27,7 @@
                                             <div contenteditable="true">
                                                 <?=$listItem['desc']?>
                                             </div>
-                                            <button type="button" id="add_item_obdj" class="btn btn-success" data-toggle="modal" data-target="#w0" style="margin-top: 15px;">Сохранить изменения</button>
+                                            <button type="button" id="add_item_obdj" class="btn btn-success" style="margin-top: 15px;">Сохранить изменения</button>
                                         </li>                                    
                                     </ul>
                                 <?php } ?>
